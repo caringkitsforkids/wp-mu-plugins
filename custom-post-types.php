@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/caringkitsforkids/wp-mu-plugins
  * Version:           1.0.0
  * Author:            Caring Kits for Kids
- * Author URI:        https://github.com/caringkitsforkids.org.uk
+ * Author URI:        https://github.com/caringkitsforkids
  * License:           GPL v3 or later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       caringkitsforkids-custom-post-types
@@ -37,9 +37,21 @@ add_action('init', function(){
         'has_archive'        => false,
         'rewrite'            => false,
         'show_in_rest'       => true,
-        'supports'           => array('title', 'editor', 'thumbnail'),
+        'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields'),
         'menu_icon'          => 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgZmlsbD0iIzljYTFhNyIgY2xhc3M9ImJpIGJpLXN0YXItZmlsbCIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNMy42MTIgMTUuNDQzYy0uMzg2LjE5OC0uODI0LS4xNDktLjc0Ni0uNTkybC44My00LjczTC4xNzMgNi43NjVjLS4zMjktLjMxNC0uMTU4LS44ODguMjgzLS45NWw0Ljg5OC0uNjk2TDcuNTM4Ljc5MmMuMTk3LS4zOS43My0uMzkuOTI3IDBsMi4xODQgNC4zMjcgNC44OTguNjk2Yy40NDEuMDYyLjYxMi42MzYuMjgyLjk1bC0zLjUyMiAzLjM1Ni44MyA0LjczYy4wNzguNDQzLS4zNi43OS0uNzQ2LjU5Mkw4IDEzLjE4N2wtNC4zODkgMi4yNTZ6Ii8+Cjwvc3ZnPg==',
     ) );
+
+    register_post_meta(
+        'highlight',
+        'read_more_link',
+        array(
+            'show_in_rest' => true,
+            'type'         => 'string',
+            'single'       => true,
+            'description'  => '',
+            'default'      => '',
+        )
+    );
 
     register_post_type('person', array(
         'labels'             => array(
